@@ -11,13 +11,21 @@
     <!-- 依赖包 -->
     <dependencies>
 
-        <!-- junit测试插件 -->
+        <!-- junit测试 -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- log4j测试 -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
         </dependency>
 
         <!-- mysql驱动 -->
