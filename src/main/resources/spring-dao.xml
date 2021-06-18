@@ -28,8 +28,9 @@
         <property name="acquireRetryAttempts" value="2"/>
     </bean>
 
-    <!-- sqlSessionFactory -->
+    <!-- sqlSessionFactory配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 注入数据源 -->
         <property name="dataSource" ref="dataSource"/>
 
         <!-- 绑定Mybatis的配置文件 -->

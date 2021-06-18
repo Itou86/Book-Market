@@ -16,6 +16,7 @@ public class BookServiceImpl implements BookService {
 
     //组合DAO层
     private BookMapper bookMapper;
+
     //set方法注入
     public void setBookMapper(BookMapper bookMapper) {
         this.bookMapper = bookMapper;
@@ -23,6 +24,7 @@ public class BookServiceImpl implements BookService {
 
     /**
      * 根据书籍ID查询书籍记录
+     *
      * @param id 书籍ID
      * @return 根据ID查询到的书籍
      */
@@ -32,6 +34,7 @@ public class BookServiceImpl implements BookService {
 
     /**
      * 查询全部书籍记录
+     *
      * @return 所有的书籍记录
      */
     public List<Books> selectAllBook() {
@@ -40,6 +43,7 @@ public class BookServiceImpl implements BookService {
 
     /**
      * 增加书籍记录
+     *
      * @param books 书籍实例
      */
     public int addBook(Books books) {
@@ -48,6 +52,7 @@ public class BookServiceImpl implements BookService {
 
     /**
      * 根据书籍ID删除书籍记录
+     *
      * @param id 书籍ID
      */
     public int deleteBookById(Integer id) {
@@ -56,6 +61,7 @@ public class BookServiceImpl implements BookService {
 
     /**
      * 更新书籍记录
+     *
      * @param books 书籍记录
      */
     public int updateBook(Books books) {

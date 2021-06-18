@@ -16,31 +16,36 @@ public interface BookMapper {
 
     /**
      * 根据书籍ID查询书籍记录
+     *
      * @param id 书籍ID
      * @return 根据ID查询到的书籍
      */
-    Books selectBookById(@Param("bookId")Integer id);
+    Books selectBookById(@Param("bookId") Integer id);
 
     /**
      * 查询全部书籍记录
+     *
      * @return 所有的书籍记录
      */
     List<Books> selectAllBook();
 
     /**
      * 增加书籍记录
+     *
      * @param books 书籍实例
      */
     int addBook(Books books);
 
     /**
      * 根据书籍ID删除书籍记录
+     *
      * @param id 书籍ID
      */
-    int deleteBookById(@Param("bookId")Integer id);
+    int deleteBookById(@Param("bookId") Integer id);
 
     /**
      * 更新书籍记录
+     *
      * @param books 书籍记录
      */
     int updateBook(Books books);
