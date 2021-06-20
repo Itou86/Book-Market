@@ -8,7 +8,7 @@
        https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--关联数据库文件-->
-    <context:property-placeholder location="DBConfig.properties"/>
+    <context:property-placeholder location="classpath:DBConfig.properties"/>
 
     <!-- 建立连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -28,19 +28,18 @@
         <property name="acquireRetryAttempts" value="2"/>
     </bean>
 
-    <!-- sqlSessionFactory -->
+    <!-- sqlSessionFactory配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 注入数据源 -->
         <property name="dataSource" ref="dataSource"/>
-
         <!-- 绑定Mybatis的配置文件 -->
-        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <!-- 配置DAO接口扫描包 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-
         <!-- 要扫描的DAO包 -->
         <property name="basePackage" value="com.itou86.bookmarket.dao"/>
     </bean>

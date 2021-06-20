@@ -3,11 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-    <!-- 基础设置 -->
     <settings>
-        <setting name="logImpl" value="LOG4J"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
-
+    
     <!-- 别名 -->
     <typeAliases>
         <package name="com.itou86.bookmarket.domain"/>
