@@ -44,7 +44,6 @@ public class BookController {
     //新增书籍
     @RequestMapping("/addBook")
     public String addBook(Books books) {
-        System.out.println("新增" + books);
         bookService.addBook(books);
         return "redirect:/book/allBook"; //重定向到请求
     }
@@ -53,7 +52,6 @@ public class BookController {
     @RequestMapping("/toUpdateBook")
     public String toUpdateBook(Model model, int id) {
         Books books = bookService.selectBookById(id);
-        System.out.println("选择" + books);
         model.addAttribute("book",books );
         return "updateBook";
     }
@@ -61,7 +59,6 @@ public class BookController {
     //修改书籍
     @RequestMapping("/updateBook")
     public String updateBook(Model model, Books book) {
-        System.out.println("修改为" + book);
         bookService.updateBook(book);
         Books books = bookService.selectBookById(book.getBookId());
         model.addAttribute("books", books);
