@@ -22,7 +22,7 @@
 
     <insert id="addBook" parameterType="Books">
         insert into books (book_name, book_counts, book_detail)
-        values (#{book_name}, #{book_counts}, {book_detail})
+        values (#{bookName}, #{bookCounts}, #{bookDetail})
     </insert>
 
     <delete id="deleteBookById" parameterType="int">
