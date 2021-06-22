@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  * <p>书籍控制器</p>
  *
  * @author : Itou86
- * @version : 1.0.0
+ * @version : 1.1.0
  * @date : 2021-06-19 16:18
  **/
 @Controller
@@ -60,16 +59,24 @@ public class BookController {
     @RequestMapping("/updateBook")
     public String updateBook(Model model, Books book) {
         bookService.updateBook(book);
-        Books books = bookService.selectBookById(book.getBookId());
+        Books books = bookService.selectBookById(book.getId());
         model.addAttribute("books", books);
         return "redirect:/book/allBook"; //重定向到请求
     }
 
     //删除书籍
-    @RequestMapping("/del/{bookId}")
-    public String deleteBook(@PathVariable("bookId") int id) {
+    @RequestMapping("/deleteBook")
+    public String deleteBook(int id) {
         bookService.deleteBookById(id);
         return "redirect:/book/allBook";
+    }
+
+    //根据书籍名字返回书籍
+    @RequestMapping("/selectBookByBookName")
+    public String selectBookByBookName(Model model, String bookName) {
+        List<Books> list = bookService.selectBookByBookName(bookName);
+        model.addAttribute("list", list);
+        return "allBook";
     }
 
 }

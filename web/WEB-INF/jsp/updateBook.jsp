@@ -26,11 +26,11 @@
         </div>
     </div>
     <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
-        <input type="hidden" name="bookId" value="${book.bookId}"/>
-        书籍名称：<input type="text" name="bookName" value="${book.bookName}"/>
-        书籍数量：<input type="text" name="bookCounts" value="${book.bookCounts}"/>
-        书籍详情：<input type="text" name="bookDetail" value="${book.bookDetail}"/>
-        <input type="submit" value="提交"/>
+        <input type="hidden" name="bookId" value="${book.id}"/>
+        书籍名称：<input class="form-control" type="text" name="bookName" value="${book.bookName}"/><br><br><br>
+        书籍数量：<input class="form-control" type="text" name="bookCounts" value="${book.bookCounts}"/><br><br><br>
+        书籍详情：<input class="form-control" type="text" name="bookDetail" value="${book.bookDetail}"/><br><br><br>
+        <input class="btn btn-primary" type="submit" value="提交"/>
     </form>
 </div>
 </body>

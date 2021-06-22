@@ -9,7 +9,7 @@ import java.util.List;
  * <p>书籍管理实现类</p>
  *
  * @author : Itou86
- * @version : 1.0.0
+ * @version : 1.1.0
  * @date : 2021-06-18 19:10
  **/
 public class BookServiceImpl implements BookService {
@@ -23,22 +23,32 @@ public class BookServiceImpl implements BookService {
     }
 
     /**
-     * 根据书籍ID查询书籍记录
-     *
-     * @param id 书籍ID
-     * @return 根据ID查询到的书籍
-     */
-    public Books selectBookById(Integer id) {
-        return bookMapper.selectBookById(id);
-    }
-
-    /**
      * 查询全部书籍记录
      *
      * @return 所有的书籍记录
      */
     public List<Books> selectAllBook() {
         return bookMapper.selectAllBook();
+    }
+
+    /**
+     * 根据书籍ID查询书籍记录
+     *
+     * @param id 书籍ID
+     * @return 根据书籍ID查询到的书籍
+     */
+    public Books selectBookById(Integer id) {
+        return bookMapper.selectBookById(id);
+    }
+
+    /**
+     * 根据书籍名称查询书籍记录
+     *
+     * @param bookName 书籍名称
+     * @return 根据书籍名称查询到的书籍
+     */
+    public List<Books> selectBookByBookName(String bookName) {
+        return bookMapper.selectBookByBookName(bookName);
     }
 
     /**

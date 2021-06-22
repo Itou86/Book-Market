@@ -21,4 +21,13 @@ public class MyTest {
             System.out.println(books);
         }
     }
+
+    @Test
+    public void test2() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BookService bookServiceImpl = (BookService) context.getBean("BookServiceImpl");
+        for (Books books : bookServiceImpl.selectBookByBookName("JAVA")) {
+            System.out.println(books);
+        }
+    }
 }

@@ -27,7 +27,18 @@
     </div>
     <div class="row">
         <div class="col-md-4 column">
-            <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增</a>
+            <a class="btn btn-primary" name="selectBookByName"
+               href="${pageContext.request.contextPath}/book/toAddBook">新增书籍</a>
+        </div>
+        <div class="col-md-4 column"></div>
+        <div class="col-md-4 column">
+            <a class="btn btn-primary" name="allBook"
+               href="${pageContext.request.contextPath}/book/allBook">返回全部书籍</a>
+            <form class="form-inline" style="float: right"
+                  action="${pageContext.request.contextPath}/book/selectBookByBookName" method="post">
+                <input class="form-control" type="text" name="bookName" placeholder="请输入书名">
+                <input class="btn btn-primary" type="submit" value="查询">
+            </form>
         </div>
     </div>
     <div class="row clearfix">
@@ -45,14 +56,14 @@
                 <tbody>
                 <c:forEach items="${list}" var="book">
                     <tr>
-                        <td>${book.bookId}</td>
+                        <td>${book.id}</td>
                         <td>${book.bookName}</td>
                         <td>${book.bookCounts}</td>
                         <td>${book.bookDetail}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.bookId}">更改</a>
+                            <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.id}">更改</a>
                             |
-                            <a href="${pageContext.request.contextPath}/book/del/${book.bookId}">删除</a>
+                            <a href="${pageContext.request.contextPath}/book/deleteBook?id=${book.id}">删除</a>
                         </td>
                     </tr>
                 </c:forEach>

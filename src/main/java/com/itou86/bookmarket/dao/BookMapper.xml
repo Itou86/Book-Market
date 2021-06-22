@@ -3,21 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itou86.bookmarket.dao.BookMapper">
 
-    <select id="selectBookById" parameterType="int" resultType="Books">
-        select book_id,
+    <select id="selectAllBook" resultType="Books">
+        select id,
                book_name,
                book_counts,
                book_detail
         from books
-        where book_id = #{bookId}
     </select>
 
-    <select id="selectAllBook" resultType="Books">
-        select book_id,
+    <select id="selectBookById" parameterType="int" resultType="Books">
+        select id,
                book_name,
                book_counts,
                book_detail
         from books
+        where id = #{id}
+    </select>
+
+    <select id="selectBookByBookName" parameterType="String" resultType="Books">
+        select id,
+               book_name,
+               book_counts,
+               book_detail
+        from books
+        where book_name like concat('%', #{bookName}, '%')
     </select>
 
     <insert id="addBook" parameterType="Books">
@@ -28,7 +37,7 @@
     <delete id="deleteBookById" parameterType="int">
         delete
         from books
-        where book_id = #{bookId}
+        where id = #{id}
     </delete>
 
     <update id="updateBook" parameterType="Books">
@@ -37,7 +46,7 @@
         set book_name   = #{bookName},
             book_counts = #{bookCounts},
             book_detail = #{bookDetail}
-        where book_id = #{bookId}
+        where id = #{id}
     </update>
 
 </mapper>
